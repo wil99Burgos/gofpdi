@@ -1258,6 +1258,9 @@ func (this *PdfReader) readPages() error {
 	// Allocate pages
 	this.pages = make([]*PdfValue, pageCount.Int)
 
+	// Reset curPage to 0 to ensure correct page indexing
+	this.curPage = 0
+
 	// Read kids
 	err = this.readKids(kids, 0)
 	if err != nil {
